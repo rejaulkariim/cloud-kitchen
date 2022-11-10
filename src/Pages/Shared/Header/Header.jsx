@@ -1,30 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contacts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const {user}= useContext(AuthContext)
     const menuItem = (
         <>
-          <Link className=" btn btn-ghost font-semibold mr-4" to="/">
+          <Link className=" text-white btn btn-ghost font-semibold mr-4" to="/">
             Home
           </Link>
-          <Link className=" btn btn-ghost font-semibold mr-4" to="/blog">
+          <Link className=" text-white btn btn-ghost font-semibold mr-4" to="/blog">
             Blog
           </Link>
-          {/* {user?.email ? (
+          {user?.email ? (
             <>
-              <Link className="font-semibold" to="/orders">
-                Orders
+              <Link className="font-semibold" to="/reviews">
+              Reviews
               </Link>
             </>
           ) : (
             <Link className="font-semibold" to="/login">
               Login
             </Link>
-          )} */}
+          )}
         </>
       )
   return (
-    <div className="navbar h-20 bg-base-100">
+    <div className="navbar h-20 bg-gray-800">
     <div className="navbar-start">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,7 +60,8 @@ const Header = () => {
       <ul className="menu menu-horizontal p-0">{menuItem}</ul>
     </div>
     <div className="navbar-end">
-      <button className="btn btn-outline btn-warning">Login</button>
+      <Link to='/login'><button className="btn btn-outline btn-secondary mr-4">Login</button></Link>
+      <Link to='/register'><button className="btn btn-outline btn-secondary">Register</button></Link>
     </div>
   </div>
   );
