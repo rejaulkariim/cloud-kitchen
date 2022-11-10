@@ -80,8 +80,8 @@ const Register = () => {
               </a>
             </div>
           </div>
-          <p className="text-error"></p>
-          <button className="block w-full p-3 text-center text-bold text-white rounded-lg bg-warning">
+          <p className="text-secondary">{error}</p>
+          <button className="block w-full p-3 text-center text-bold text-white rounded-lg bg-secondary ">
             Register
           </button>
         </form>
