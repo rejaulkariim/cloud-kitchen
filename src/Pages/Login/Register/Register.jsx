@@ -34,7 +34,6 @@ const Register = () => {
         </h1>
         <form
           onSubmit={handleSubmit}
-          novalidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >

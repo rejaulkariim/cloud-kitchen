@@ -51,7 +51,6 @@ const Login = () => {
         </h1>
         <form
           onSubmit={handleSubmit}
-          novalidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
@@ -84,7 +83,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <p className="text-error">{error}</p>
+          <p className="text-secondary">{error}</p>
           <button className="block w-full p-3 text-center font-bold text-white rounded-lg bg-secondary">
             Login
           </button>
