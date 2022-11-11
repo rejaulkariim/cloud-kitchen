@@ -17,7 +17,8 @@ const AddService = ({service}) => {
     console.log(title, image, ratings, price,descriptions)
 
     const services = {
-      name: title,
+      services: _id,
+      serviceName: title,
       img: image,
       ratings: ratings,
       price: price,
