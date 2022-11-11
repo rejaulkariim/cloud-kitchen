@@ -43,11 +43,11 @@ const Home = () => {
             <ServiceCard key={services._id} service={service} />
           ))}
         </div>
-        <div className=" flex justify-center mt-20">
+        <div className=" flex justify-center mt-10">
           <Link to="/services">
             <button
               type="button"
-              className="flex items-center justify-center p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
+              className="flex items-center justify-center p-3 text-white font-semibold tracking-wide rounded-md bg-gray-900"
             >
               See All Services
             </button>
