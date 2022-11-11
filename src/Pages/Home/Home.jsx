@@ -36,9 +36,8 @@ const Home = () => {
       <section>
         <div className=" text-center mt-8 mb-8">
           <h1 className="text-black text-4xl font-bold">Our Services</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            totam.
+          <p className="text-xl">
+           Find all the best food at our Cloud Kitchen
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-3/4 mx-auto">

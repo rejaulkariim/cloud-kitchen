@@ -22,34 +22,37 @@ const Header = () => {
       </Link>
       <Link
         className=" text-white btn btn-ghost font-semibold mr-4"
-        to="/reviews"
-      >
-        Reviews
-      </Link>
-      <Link
-        className=" text-white btn btn-ghost font-semibold mr-4"
         to="/services"
       >
         Services
       </Link>
-      <Link
-        className=" text-white btn btn-ghost font-semibold mr-4"
-        to="/add-service"
-      >
-        add services
-      </Link>
-
-      {user?.email ? (
+      {
+        user?.email?
         <>
-          <Link className="font-semibold" to="/reviews">
-            Reviews
-          </Link>
+        <Link
+          className=" text-white btn btn-ghost font-semibold mr-4"
+          to="/add-service"
+        >
+          Add Services
+        </Link>
+        <Link
+          className=" text-white btn btn-ghost font-semibold mr-4"
+          to="/review"
+        >
+          My Reviews
+        </Link>
+        <button onClick={handleLogOut} className='text-white'>
+        LOGOUT
+        </button>
         </>
-      ) : (
-        <Link className="font-semibold" to="/login">
+        :
+        <Link
+          className=" text-white btn btn-ghost font-semibold mr-4"
+          to="/login"
+        >
           Login
         </Link>
-      )}
+      }
     </>
   );
   return (
@@ -86,45 +89,7 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItem}</ul>
       </div>
-      <div className="navbar-end">
-        {user?.uid ? (
-          <>
-            <button
-              onClick={handleLogOut}
-              className="px-4 py-2 mr-4 ml-2 font-semibold rounded outline bg-warning hover:bg-secondary  text-white "
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to="/login">
-              <button className="px-4 py-1 bg-secondary rounded-md  text-white mr-2 outline hover:bg-info">
-                Login
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="px-4 py-1 bg-secondary rounded-md text-white mr-2 outline hover:bg-info">
-                Register
-              </button>
-            </Link>
-          </>
-        )}
-
-        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-          {user?.photoURL ? (
-            <img
-              className="rounded-full outline text-white"
-              style={{ height: "40px" }}
-              src={user?.photoURL}
-              alt=""
-            />
-          ) : (
-            <FaUserCheck className="text-2xl" />
-          )}
-        </div>
-      </div>
-      
+      <div className="navbar-end"></div>
     </div>
   );
 };
