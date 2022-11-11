@@ -74,7 +74,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItem}</ul>
       </div>
       <div className="navbar-end">
-        {user?.photoURL ? (
+        {user?.email ? (
           <>
             <Link
               onClick={handleLogOut}
