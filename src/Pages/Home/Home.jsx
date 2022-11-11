@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ServiceCard from "../Shared/ServiceCard/ServiceCard";
 
 const Home = () => {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/home-services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
   return (
     <div>
       <section className="bg-gray-800">
@@ -31,6 +39,9 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
             totam.
           </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-3/4 mx-auto">
+          {services.map(service=><ServiceCard key={services._id} service={service}/>)}
         </div>
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto">

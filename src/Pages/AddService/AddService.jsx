@@ -1,7 +1,10 @@
-import React from "react";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contacts/AuthProvider/AuthProvider";
 
-const AddService = () => {
+const AddService = ({service}) => {
+  const { title, img, price, _id } = service;
+  const {user}=useContext(AuthContext)
+
 
   const handleAddService = (e) => {
     e.preventDefault();
