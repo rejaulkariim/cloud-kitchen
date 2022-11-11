@@ -1,47 +1,74 @@
 import React from "react";
 
 const AddService = () => {
-  return (
-    <div className="pt-24 pb-24 bg-gray-900">
-      <form className="w-6/12 mx-auto">
-        <div className="grid grid-cols-1 gap-4 mb-4">
-          <input
-            type="text"
-            name="title"
-            placeholder="Name"
-            className="input input-bordered input-secondary w-full"
-            required
-          />
-          <input
-            type="text"
-            name="imageURL"
-            placeholder="imageUrl"
-            className="input input-bordered input-secondary w-full"
-            required
-          />
+  const handlePlaceReview = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.title.value;
+    const price = form.price.value;
+    const imageURL = form.imageURL.value;
+    const descriptions = form.descriptions.value;
 
+    const services = {
+      name,
+      imageURL,
+      price,
+      descriptions,
+    };
+    fetch("http://localhost:5000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(services),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("order placed successfully");
+          form.reset();
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <div className="bg-gray-900 pt-32 pb-32">
+      <form onSubmit={handlePlaceReview}>
+        <div className="grid grid-cols-1 w-6/12 mx-auto gap-4">
           <input
+            name="title"
             type="text"
-            name="ratings"
-            placeholder="Rating"
-            className="input input-bordered input-secondary w-full"
+            placeholder="Title"
+            className="input w-full input-bordered input-secondary"
             required
           />
           <input
-            type="text"
+            name="imageURL"
+            type="url"
+            placeholder="ImageURL"
+            className="input w-full input-bordered input-secondary"
+          />
+          <input
             name="price"
+            type="number"
             placeholder="Price"
-            className="input input-bordered input-secondary w-full"
+            className="input w-full input-bordered input-secondary"
             required
           />
           <textarea
-            className="textarea textarea-bordered"
             name="descriptions"
-            placeholder="Descriptions"
+            className="textarea textarea-bordered h-24 w-full textarea-secondary"
+            placeholder="descriptions"
             required
           ></textarea>
+          <input
+            className="btn btn-secondary mb-8"
+            type="submit"
+            value="Add a Product"
+          />
         </div>
-        <input className="btn" type="submit" value="Add a Service" />
       </form>
     </div>
   );

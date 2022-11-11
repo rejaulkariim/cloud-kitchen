@@ -9,7 +9,6 @@ const Reviews = () => {
     const name = `${form.firstName.value} ${form.lastName.value}`;
     const email = user?.email || "unregistered";
     const message = form.message.value;
-   
 
     const order = {
       service: _id,
@@ -42,7 +41,9 @@ const Reviews = () => {
   return (
     <div className="bg-gray-900 pt-32 pb-32">
       <form onSubmit={handlePlaceReview}>
-        <h2 className="text-4xl text-white text-center font-bold mb-4">You are about to leave a review {title}</h2>
+        <h2 className="text-4xl text-white text-center font-bold mb-4">
+          You are about to leave a review {title}
+        </h2>
         <div className="grid grid-cols-1 w-6/12 mx-auto gap-4">
           <input
             name="firstName"

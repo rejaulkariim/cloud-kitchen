@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
-  const { _id, img, title, price, description } = useLoaderData();
+  const { _id, imageURL, title, price, descriptions } = useLoaderData();
 
   return (
     <div className="pt-24 pb-24">
@@ -10,9 +10,9 @@ const ServiceDetails = () => {
         <div className="flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto">
           <div className="relative lg:w-1/2">
             <img
-              src={img}
+              src={imageURL}
               alt=""
-              className="object-cover w-full lg:absolute h-80 lg:h-full"
+              className="object-cover w-full lg:absolute lg:h-full"
             />
             <svg
               className="absolute top-0 right-0 hidden h-full text-white lg:inline-block"
@@ -31,15 +31,15 @@ const ServiceDetails = () => {
             <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
               {title}
             </h5>
-            <p className="mb-5 text-gray-800">{description}</p>
+            <p className="mb-5 text-gray-800">{descriptions}</p>
             <div className="flex items-center">
               <Link to={`/reviews/${_id}`}>
                 {" "}
                 <button
                   type="submit"
-                  className="btn btn-outline bg-secondary text-white"
+                  className="btn btn-outline  bg-gray-900  text-white"
                 >
-                  Add Services
+                  Add Reviews
                 </button>
               </Link>
             </div>
