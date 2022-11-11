@@ -14,45 +14,33 @@ const Header = () => {
 
   const menuItem = (
     <>
-      <Link className=" text-white btn btn-ghost font-semibold mr-4" to="/">
+      <Link className=" text-white  font-bold mr-4" to="/">
         Home
       </Link>
-      <Link className=" text-white btn btn-ghost font-semibold mr-4" to="/blog">
+      <Link className=" text-white font-bold mr-4" to="/blog">
         Blog
       </Link>
-      <Link
-        className=" text-white btn btn-ghost font-semibold mr-4"
-        to="/services"
-      >
+      <Link className=" text-white font-bold mr-4" to="/services">
         Services
       </Link>
-      {
-        user?.email?
+      {user?.email ? (
         <>
-        <Link
-          className=" text-white btn btn-ghost font-semibold mr-4"
-          to="/add-service"
-        >
-          Add Services
-        </Link>
-        <Link
-          className=" text-white btn btn-ghost font-semibold mr-4"
-          to="/review"
-        >
-          My Reviews
-        </Link>
-        <button onClick={handleLogOut} className='text-white'>
-        LOGOUT
-        </button>
+          <Link className=" text-white  font-bold mr-4" to="/addService">
+            Add Services
+          </Link>
+          <Link className=" text-white  font-bold mr-4" to="/reviews">
+            My Reviews
+          </Link>
+          <Link  onClick={handleLogOut} className=" text-white  font-bold mr-4">
+            Logout
+          </Link>
+          
         </>
-        :
-        <Link
-          className=" text-white btn btn-ghost font-semibold mr-4"
-          to="/login"
-        >
+      ) : (
+        <Link className=" text-white font-bold mr-4" to="/login">
           Login
         </Link>
-      }
+      )}
     </>
   );
   return (

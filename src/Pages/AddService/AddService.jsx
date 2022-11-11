@@ -1,44 +1,9 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../contacts/AuthProvider/AuthProvider";
+import React from "react";
 
-const AddService = ({service}) => {
-  const { title, img, price, _id } = service;
-  const {user}=useContext(AuthContext)
-
-
-  const handleAddService = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const title = form.title.value;
-    const image = form.imageURL.value;
-    const ratings = form.ratings.value;
-    const price = form.price.value;
-    const descriptions = form.descriptions.value;
-    console.log(title, image, ratings, price,descriptions)
-
-    const services = {
-      services: _id,
-      serviceName: title,
-      img: image,
-      ratings: ratings,
-      price: price,
-      descriptions: descriptions,
-    };
-    console.log(services);
-
-    fetch("http://localhost:5000/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application.json",
-      },
-      body: JSON.stringify(services),
-    })
-      .then((res) => res.json())
-      .then(data=>console.log(data))
-  };
+const AddService = () => {
   return (
     <div className="pt-24 pb-24 bg-gray-900">
-      <form onSubmit={handleAddService} className="w-6/12 mx-auto">
+      <form className="w-6/12 mx-auto">
         <div className="grid grid-cols-1 gap-4 mb-4">
           <input
             type="text"

@@ -36,22 +36,22 @@ const Home = () => {
       <section>
         <div className=" text-center mt-8 mb-8">
           <h1 className="text-black text-4xl font-bold">Our Services</h1>
-          <p className="text-xl">
-           Find all the best food at our Cloud Kitchen
-          </p>
+          <p className="text-xl">Find all the best food at our Cloud Kitchen</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-3/4 mx-auto">
-          {services.map(service=><ServiceCard key={services._id} service={service}/>)}
+          {services.map((service) => (
+            <ServiceCard key={services._id} service={service} />
+          ))}
         </div>
         <div className=" flex justify-center mt-20">
-        <Link to='/services'>
-          <button
-            type="button"
-            className="flex items-center justify-center p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
-          >
-            See All Services
-          </button>
-        </Link>
+          <Link to="/services">
+            <button
+              type="button"
+              className="flex items-center justify-center p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
+            >
+              See All Services
+            </button>
+          </Link>
         </div>
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto">
@@ -89,12 +89,29 @@ const Home = () => {
                   type="submit"
                   className="btn btn-outline bg-secondary text-white"
                 >
-                 Add Services
+                  Add Services
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <section className="py-6 dark:bg-violet-400 dark:text-gray-900">
+          <div className="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
+            <h1 className="text-5xl font-bold leading-none text-center">
+              Something totally different
+            </h1>
+            <p className="pt-2 pb-8 text-xl font-medium text-center">
+              Eum omnis itaque harum at quae sequi unde similique alias
+              asperiores totam. Ex cumque maxime harum doloremque, tempore nam
+              fugiat aspernatur rerum ipsa unde est modi commodi molestias
+              maiores eveniet eius esse asperiores neque dicta ea quisquam?
+              Excepturi sapiente officiis explicabo ab?
+            </p>
+            <button className="px-8 py-3 text-lg font-semibold rounded dark:bg-gray-800 dark:text-gray-50">
+              Learn more
+            </button>
+          </div>
+        </section>
       </section>
     </div>
   );
