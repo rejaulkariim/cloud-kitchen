@@ -14,21 +14,18 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <section className="bg-gray-800">
-        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+      <section className="bg-gray-900 w-full">
+        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:p-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-5xl text-white font-bold leading-none sm:text-6xl">
               Welcome to
               <span className="text-secondary"> Cloud Kitchen</span>
             </h1>
-            <p className="mt-6 mb-8 text-lg sm:mb-12">
-              Dictum aliquam porta in condimentum ac integer
-            </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start"></div>
           </div>
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
             <img
-              src="assets/svg/Business_SVG.svg"
+              src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
               alt=""
               className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
             />
@@ -78,40 +75,31 @@ const Home = () => {
                 </p>
               </div>
               <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
-                Add Your Services...
+                You can add your service 
               </h5>
               <p className="mb-5 text-gray-800">
-                <span className="font-bold">Lorem ipsum</span> dolor sit amet,
-                consectetur adipiscing elit. Etiam sem neque, molestie sit amet
-                venenatis et, dignissim ut erat. Sed aliquet velit id dui
-                eleifend, sed consequat odio sollicitudin.
+                You can add your service by clicking the add button. feel free to use it
               </p>
               <div className="flex items-center">
-                <button
+                <Link to='/addService'><button
                   type="submit"
                   className="btn btn-outline bg-secondary text-white"
                 >
                   Add Services
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>
         </div>
-        <section className="py-6 dark:bg-violet-400 dark:text-gray-900">
+        <section className="py-6 bg-gray-900">
           <div className="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
-            <h1 className="text-5xl font-bold leading-none text-center">
+            <h1 className="text-5xl font-bold leading-none text-center text-white">
               Something totally different
             </h1>
-            <p className="pt-2 pb-8 text-xl font-medium text-center">
-              Eum omnis itaque harum at quae sequi unde similique alias
-              asperiores totam. Ex cumque maxime harum doloremque, tempore nam
-              fugiat aspernatur rerum ipsa unde est modi commodi molestias
-              maiores eveniet eius esse asperiores neque dicta ea quisquam?
-              Excepturi sapiente officiis explicabo ab?
+            <p className="pt-2 pb-8 text-xl font-medium text-center text-white">
+            we are cloud based kitchen to serve yoy fresh and healthy food almost every day
             </p>
-            <button className="px-8 py-3 text-lg font-semibold rounded dark:bg-gray-800 dark:text-gray-50">
-              Learn more
-            </button>
+          
           </div>
         </section>
       </section>

@@ -6,6 +6,7 @@ import ErrorPage from "../../ErrorPage/ErrorPage";
 import Home from "../../Home/Home";
 import Login from "../../Login/Login/Login";
 import Register from "../../Login/Register/Register";
+import MyReviews from "../../MyReviews/MyReviews";
 import Reviews from "../../Reviews/Reviews";
 import ServiceDetails from "../../ServiceDetails/ServiceDetails";
 import Services from "../../Services/Services";
@@ -27,9 +28,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/reviews/:id",
-        element: <Reviews />,
+        element: <PrivateRoute><Reviews /></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://cloud-kitchen-server-pi.vercel.app/services/${params.id}`),
       },
       {
         path: "/services",
@@ -39,13 +40,13 @@ export const router = createBrowserRouter([
         path: "service/:id",
         element: <ServiceDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://cloud-kitchen-server-pi.vercel.app/services/${params.id}`),
       },
       {
         path: "/addService",
-        element: <AddService />,
+        element: <PrivateRoute><AddService /></PrivateRoute>,
         loader: ({ params }) =>
-          fetch('http://localhost:5000/services'),
+          fetch('https://cloud-kitchen-server-pi.vercel.app/services'),
       },
       {
         path: "/login",
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path:'/myReviews',
+        element:<MyReviews/>
       },
     ],
   },

@@ -3,8 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../Hooks/useTitle";
 
 const ServiceDetails = () => {
-  useTitle('Service Details')
+  useTitle("Service Details");
   const { _id, imageURL, title, price, descriptions } = useLoaderData();
+
 
   return (
     <div className="pt-24 pb-24">
@@ -47,6 +48,7 @@ const ServiceDetails = () => {
             </div>
           </div>
         </div>
+       
       </div>
     </div>
   );

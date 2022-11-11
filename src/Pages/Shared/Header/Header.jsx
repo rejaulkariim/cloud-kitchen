@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaUserCheck } from "react-icons/fa";
 import { AuthContext } from "../../../contacts/AuthProvider/AuthProvider";
+import { FaUserCheck } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -28,13 +28,9 @@ const Header = () => {
           <Link className=" text-white  font-bold mr-4" to="/addService">
             Add Services
           </Link>
-          <Link className=" text-white  font-bold mr-4" to="/reviews">
+          <Link className=" text-white  font-bold mr-4" to="/myReviews">
             My Reviews
           </Link>
-          <Link  onClick={handleLogOut} className=" text-white  font-bold mr-4">
-            Logout
-          </Link>
-          
         </>
       ) : (
         <Link className=" text-white font-bold mr-4" to="/login">
@@ -44,7 +40,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar h-20 bg-gray-800">
+    <div className="navbar h-20 bg-gray-800 px-28">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,13 +67,34 @@ const Header = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img src="" alt="" />
+          <h2 className="text-white">Cloud Kitchen</h2>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItem}</ul>
       </div>
-      <div className="navbar-end"></div>
+      <div className="navbar-end">
+        {user?.photoURL ? (
+          <>
+            <Link
+              onClick={handleLogOut}
+              className=" text-white font-bold mr-4"
+              to="/login"
+            >
+              Logout
+            </Link>
+
+            <img
+              className="rounded-full outline text-white"
+              style={{ height: "40px" }}
+              src={user?.photoURL}
+              alt=""
+            />
+          </>
+        ) : (
+          <FaUserCheck className="text-2xl" />
+        )}
+      </div>
     </div>
   );
 };
