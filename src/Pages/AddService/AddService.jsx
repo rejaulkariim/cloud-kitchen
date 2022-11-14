@@ -1,8 +1,9 @@
 import React from "react";
+import { toast } from "react-toastify";
 import useTitle from "../../Hooks/useTitle";
 
 const AddService = () => {
-  useTitle('Add Services')
+  useTitle("Add Services");
   const handlePlaceReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,7 +18,7 @@ const AddService = () => {
       price,
       descriptions,
     };
-    fetch("http://localhost:5000/services", {
+    fetch("https://cloud-kitchen-server-pi.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -28,7 +29,8 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("order placed successfully");
+          toast("service added successfully");
+          // alert("service added successfully");
           form.reset();
         }
       })
@@ -37,7 +39,9 @@ const AddService = () => {
 
   return (
     <div className="bg-gray-900 pt-32 pb-32">
-      <h2 className="text-4xl font-bold text-white text-center mb-4">Please Add a Service</h2>
+      <h2 className="text-4xl font-bold text-white text-center mb-4">
+        Please Add a Service
+      </h2>
       <form onSubmit={handlePlaceReview}>
         <div className="grid grid-cols-1 w-6/12 mx-auto gap-4">
           <input

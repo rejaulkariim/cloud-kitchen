@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
               Price ${price}
             </h2>
             <div>
-              {descriptions.length > 150 ? (
+              {descriptions.length > 100 ? (
                 <div className="mt-2">
                   {descriptions.slice(0, 100) + "..."} <br />
                   <Link to={`/service/${_id}`}>

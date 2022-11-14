@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../contacts/AuthProvider/AuthProvider";
 
 const Reviews = () => {
@@ -18,7 +19,7 @@ const Reviews = () => {
       email,
       message,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://cloud-kitchen-server-pi.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -29,7 +30,8 @@ const Reviews = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("order placed successfully");
+          toast('Review added successfully');
+         
           form.reset();
         }
       })

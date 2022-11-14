@@ -8,7 +8,7 @@ const Home = () => {
   useTitle('Home')
 
   useEffect(() => {
-    fetch("http://localhost:5000/home-services")
+    fetch("https://cloud-kitchen-server-pi.vercel.app/home-services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
